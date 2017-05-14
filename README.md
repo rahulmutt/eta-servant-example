@@ -4,7 +4,7 @@ This is an proof-of-concept example of using the [Servant](https://haskell-serva
 
 NOTE: The dependencies `wai-servlet`(https://github.com/jneira/wai-servlet) is still under development (although nearing completion) and this example should actually depend on [wai-servlet-handler-jetty](https://github.com/jneira/wai-servlet-handler-jetty) which is also under development.
 
-# Prerequisites
+# Instructions
 
 1. Download & install [wai-servlet](https://github.com/jneira/wai-servlet).
 
