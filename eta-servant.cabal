@@ -19,6 +19,7 @@ executable eta-servant
                      , aeson
                      , transformers
                      , time
+                     , bytestring
   maven-depends:       javax.servlet:servlet-api:2.5
                      , org.eclipse.jetty:jetty-servlet:9.4.3.v20170317
   hs-source-dirs:      src

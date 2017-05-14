@@ -53,7 +53,7 @@ runJetty port app = java $ do
   server <- newServer port
   holder <- newServletHolder $ unsafeForceCast (makeServlet app)
   handler <- newServletContextHandler server "/"
-  handler <.> addServlet holder "/"
+  handler <.> addServlet holder "/*"
   server <.> start
 
 

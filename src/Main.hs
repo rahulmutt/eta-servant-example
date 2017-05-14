@@ -7,6 +7,7 @@ import Network.Wai
 import Network.HTTP.Types                 (status200)
 import Servlet.Jetty
 import Servant
+import qualified Data.ByteString.Lazy.Char8 as B
 
 data User = User
   { name :: String
@@ -19,7 +20,7 @@ instance ToJSON User
 
 -- /users
 type UserAPI =  "users" :> Get '[JSON] [User]
-           -- :<|> Raw
+           :<|> Raw
 
 users :: [User]
 users =
@@ -32,14 +33,14 @@ userAPI = Proxy
 
 server :: Server UserAPI
 server = return users
-    -- :<|> appSimple
+    :<|> appSimple
 
 app :: Application
 app = serve userAPI server
 
 appSimple :: Application
-appSimple _ respond = respond $
-   responseLBS status200 [("Content-Type", "text/plain")] "Hello World"
+appSimple req respond = respond $
+   responseLBS status200 [("Content-Type", "text/plain")] (B.pack (show req))
 
 main :: IO ()
 main = runJetty 9000 app
