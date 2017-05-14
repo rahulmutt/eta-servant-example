@@ -13,13 +13,16 @@ executable eta-servant
   other-modules:       Servlet.Jetty
   build-depends:       base >=4.8 && <4.9
                      , wai-servlet
-                     , servant-server
+                     , servant-server <= 0.9.1.1
                      , wai
                      , http-types
                      , aeson
                      , transformers
                      , time
                      , bytestring
+                     , servant-docs
+                     , text
+                     , either
   maven-depends:       javax.servlet:servlet-api:2.5
                      , org.eclipse.jetty:jetty-servlet:9.4.3.v20170317
   hs-source-dirs:      src
@@ -32,3 +35,4 @@ executable eta-servant
                        MagicHash
                        LambdaCase
                        OverloadedStrings
+                       FlexibleInstances
