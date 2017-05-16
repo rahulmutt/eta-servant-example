@@ -9,7 +9,7 @@ import Data.Text.Lazy.Encoding (encodeUtf8)
 
 import Network.HTTP.Types
 import Network.Wai
-import Servlet.Jetty
+import Network.Wai.Servlet.Handler.Jetty
 
 import Servant
 import Servant.Docs
@@ -142,4 +142,4 @@ app :: Application
 app = serve api server
 
 main :: IO ()
-main = runJetty 9000 app
+main = run 9000 app
