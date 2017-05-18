@@ -8,11 +8,13 @@ This is an proof-of-concept example of using the [Servant](https://haskell-serva
 
 # Instructions
 
+1. Install the dependencies and run.
+
 ```
 etlas install --dependencies-only
 etlas run
 ```
 
-3. Go to `http://localhost:9000` and see the generated docs on how to play with the API.
+2. Go to `http://localhost:9000` and see the generated docs on how to play with the API.
 
-4. Read the [Servant Tutorial](http://haskell-servant.readthedocs.io/en/stable/) and modify this example to your heart's content!
+3. Read the [Servant Tutorial](http://haskell-servant.readthedocs.io/en/stable/) and modify this example to your heart's content!
