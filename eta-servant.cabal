@@ -13,7 +13,8 @@ executable eta-servant
   build-depends:       base >=4.8 && <4.9
                      , wai-servlet
                      , wai-servlet-handler-jetty
-                     , servant-server <= 0.9.1.1
+                     , servant
+                     , servant-server
                      , wai
                      , http-types
                      , aeson

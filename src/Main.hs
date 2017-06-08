@@ -75,15 +75,15 @@ subServer = position
        :<|> hello
        :<|> marketing
 
-  where position :: Int -> Int -> ExceptT ServantErr IO Position
+  where position :: Int -> Int -> Handler Position
         position a b = return (Position a b)
 
-        hello :: Maybe String -> ExceptT ServantErr IO HelloMessage
+        hello :: Maybe String -> Handler HelloMessage
         hello mname = return . HelloMessage $ case mname of
           Nothing -> "Hello, anonymous coward"
           Just n  -> "Hello, " ++ n
 
-        marketing :: ClientInfo -> ExceptT ServantErr IO Email
+        marketing :: ClientInfo -> Handler Email
         marketing clientinfo = return (emailForClient clientinfo)
 
 type DocsAPI = SubAPI :<|> Raw
@@ -131,7 +131,7 @@ docsBS = encodeUtf8
   where intro = DocIntro "Welcome" ["This is our super webservice's API.", "Enjoy!"]
 
 server :: Server DocsAPI
-server = subServer :<|> serveDocs
+server = subServer :<|> (Tagged serveDocs)
 
   where serveDocs _ respond =
           respond $ responseLBS ok200 [plain] docsBS
