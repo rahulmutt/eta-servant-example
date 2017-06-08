@@ -25,4 +25,5 @@ dependencies:
 
 test:
   override:
+    - etlas install --dependencies-only
     - etlas build
