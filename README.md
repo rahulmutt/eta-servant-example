@@ -15,6 +15,15 @@ etlas install --dependencies-only
 etlas run
 ```
 
+NOTE: If the installation step seems to hang with no console output, try:
+
+```
+etlas install --dependencies-only --allow-newer
+etlas run
+```
+
+which should make it go faster, but may make your build fail in rare cases.
+
 2. Go to `http://localhost:9000` and see the generated docs on how to play with the API.
 
 3. Read the [Servant Tutorial](http://haskell-servant.readthedocs.io/en/stable/) and modify this example to your heart's content!
